@@ -166,3 +166,7 @@ ul {
 .btn:active {
   top: 2px;
 }
+
+.book-list {
+  padding: 1.5rem;
+}
