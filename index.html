@@ -18,19 +18,9 @@
         <input type="text" name="author" id="author" placeholder="text" />
         <input type="number" name="pages" id="pages" placeholder="pages" />
         <div class="radio-btns">
-          <div class="radio-field">
-            <input
-              type="radio"
-              name="reading"
-              id="noread"
-              checked
-              value="false"
-            />
-            <label for="noread">not read</label>
-          </div>
-          <div class="radio-field">
-            <input type="radio" name="reading" id="read" value="true" />
-            <label for="read">read</label>
+          <div class="checkbox-field">
+            <input type="checkbox" name="reading" id="read" value="true" />
+            <label for="read">Have you read the book?</label>
           </div>
         </div>
 
@@ -38,7 +28,11 @@
       </form>
 
       <ul class="book-list">
-        <li class="book-card"></li>
+        <h3 class="book-detail">
+          "The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
+        </h3>
+        <button class="btn-delete">x</button>
+      </li>
       </ul>
     </div>
   </body>
