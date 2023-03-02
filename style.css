@@ -97,6 +97,29 @@ ul {
   padding: 8px;
   border: none;
 
-  border-bottom: 1px solid #3e0606;
+  border-bottom: 2px solid #3e0606;
   /* border-radius: 5px; */
+}
+
+.radio-btns {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.radio-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio-field > label {
+  margin-left: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.radio-field > input[type="radio"] {
+  width: 1rem;
+  height: 1rem;
 }
