@@ -9,28 +9,29 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <h1>Library book</h1>
     <div class="container">
-      <form action="form">
-        <div class="row">
-          <label for="title">title</label>
-          <input type="text" name="title" id="title" />
+      <form class="form">
+        <input type="text" name="title" id="title" placeholder="title" />
+        <input type="text" name="author" id="author" placeholder="text" />
+        <input type="number" name="pages" id="pages" placeholder="pages" />
+        <div class="radio-btns">
+          <div class="radio-field">
+            <input
+              type="radio"
+              name="reading"
+              id="noread"
+              checked
+              value="false"
+            />
+            <label for="noread">not read</label>
+          </div>
+          <div class="radio-field">
+            <input type="radio" name="reading" id="read" value="true" />
+            <label for="read">read</label>
+          </div>
         </div>
-        <div class="row">
-          <label for="author">Author</label>
-          <input type="text" name="author" id="author" />
-        </div>
-        <div class="row">
-          <label for="pages">Pages</label>
-          <input type="text" name="pages" id="pages" />
-        </div>
-        <div class="row">
-          <label for="noread">Not Read</label>
-          <input type="radio" name="reading" id="noread" checked />
-          <label for="read">Read</label>
-          <input type="radio" name="reading" id="read" />
-        </div>
-        <button class="btn">add new book +</button>
+
+        <button class="btn btn-add">add new book</button>
       </form>
 
       <ul class="book-list"></ul>
