@@ -11,7 +11,27 @@
   <body>
     <h1>Library book</h1>
     <div class="container">
-      <form action="form"></form>
+      <form action="form">
+        <div class="row">
+          <label for="title">title</label>
+          <input type="text" name="title" id="title" />
+        </div>
+        <div class="row">
+          <label for="author">Author</label>
+          <input type="text" name="author" id="author" />
+        </div>
+        <div class="row">
+          <label for="pages">Pages</label>
+          <input type="text" name="pages" id="pages" />
+        </div>
+        <div class="row">
+          <label for="noread">Not Read</label>
+          <input type="radio" name="reading" id="noread" checked />
+          <label for="read">Read</label>
+          <input type="radio" name="reading" id="read" />
+        </div>
+        <button class="btn">add new book +</button>
+      </form>
 
       <ul class="book-list"></ul>
     </div>
