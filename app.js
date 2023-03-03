@@ -26,10 +26,11 @@ function addBookToLibrary(e) {
   // create new Book object
   const book = new Book(title, author, +pages, read);
 
-  console.log(book);
-
   // create 'book row' element with object property values
   const bookRowEL = generateBookRowELement(book);
+
+  // set data-row attribute on bookRowEl
+  bookRowEL.setAttribute("data-row", myLibrary.length);
 
   // add book object to array
   myLibrary.push(book);
