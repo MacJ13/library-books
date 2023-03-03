@@ -37,8 +37,21 @@ function addBookToLibrary(e) {
 
   // display created element inside 'book-list' class element
   booklist.appendChild(bookElement);
-  // generateBookElement(book);
-  // myLibrary.push(book);
+}
+
+function generateButtonDelete() {
+  // create element button and assign button className
+  const btn = document.createElement("button");
+  btn.className = "btn-delete";
+
+  // create two elements with array values class and add to btn element
+  ["left-line", "right-line"].forEach((cls) => {
+    const span = document.createElement("span");
+    span.className = cls;
+    btn.insertAdjacentElement("beforeend", span);
+  });
+
+  return btn;
 }
 
 function generateBookRowELement(book) {
@@ -60,7 +73,6 @@ function generateBookRowELement(book) {
     } else {
       item.textContent = book[property];
     }
-
     row.insertAdjacentElement("beforeend", item);
   }
 
