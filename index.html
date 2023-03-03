@@ -14,40 +14,59 @@
     </div>
     <div class="container">
       <form class="form">
-        <input type="text" name="title" id="title" placeholder="title" value="The Hobbit" />
-        <input type="text" name="author" id="author" placeholder="text" value="J.R.R Tolkien"/>
-        <input type="number" name="pages" id="pages" placeholder="pages" value="333"/>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="title"
+          value="The Hobbit"
+        />
+        <input
+          type="text"
+          name="author"
+          id="author"
+          placeholder="text"
+          value="J.R.R Tolkien"
+        />
+        <input
+          type="number"
+          name="pages"
+          id="pages"
+          placeholder="pages"
+          value="333"
+        />
         <div class="radio-btns">
           <div class="checkbox-field">
-            <input type="checkbox" name="read" id="read" value="false"/>
+            <input type="checkbox" name="read" id="read" value="not read" />
             <label for="read">Have you read the book?</label>
           </div>
         </div>
 
         <button class="btn btn-add">add new book</button>
       </form>
-
-      <ul class="book-list">
-        <li id="book-header" class="book-row">
-          <span class="title">Title</span>
-          <span class="author">author</span>
-          <span class="pages">pages</span>
-          <span class="read">read</span>
-        </li>
-        <li class="book-row">
-            <span class="title">The Hobbit</span>
-            <span class="author">J.R.R. Tolkien</span>
-            <span class="pages">295 pages</span>
-            <span class="read">not read</span>
-            <!-- "The Hobbit by , 295 pages, not read yet" -->
-            <button type="button" class="btn-delete">
-              <span class="left-line"></span>
-              <span class="right-line"></span>
-            </button>
-          </div>
-        </li>
-      </li>
-      </ul>
+      <div class="book-container">
+        <div id="book-header">
+          <span>Title</span>
+          <span>author</span>
+          <span>pages</span>
+          <span>read</span>
+        </div>
+        <ul class="book-list">
+          <!-- "The Hobbit by , 295 pages, not read yet" -->
+          <!-- <li class="book-row">
+              <span class="title">The Hobbit</span>
+              <span class="author">J.R.R. Tolkien</span>
+              <span class="pages">295 pages</span>
+              <span class="read">not read</span>
+    
+              <button type="button" class="btn-delete">
+                <span class="left-line"></span>
+                <span class="right-line"></span>
+              </button>
+            </div>
+          </li> -->
+        </ul>
+      </div>
     </div>
   </body>
 </html>
