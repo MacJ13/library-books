@@ -63,6 +63,8 @@ function generateBookRowELement(book) {
 
   // loop over object book properties
   for (const property in book) {
+    if (!book.hasOwnProperty(property)) continue;
+
     // create html for property and assign property to class name
     const item = document.createElement("span");
     item.className = property;
@@ -115,7 +117,6 @@ function toggleReadElement(target) {
 
   const book = myLibrary[index];
   book.toggleRead();
-  console.log(myLibrary[index]);
 
   const text = target.textContent === "read" ? "not read" : "read";
 
