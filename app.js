@@ -11,10 +11,13 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+};
+
 function addBookToLibrary(e) {
   // stop default behavior of submit event
   e.preventDefault();
-
   // create variables with input value
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
@@ -106,6 +109,20 @@ function removeBookFromLibrary(target) {
     booklist.appendChild(bookElement);
   });
 }
+
+function toggleReadElement(target) {
+  const index = target.parentNode.dataset.row;
+
+  const book = myLibrary[index];
+  book.toggleRead();
+  console.log(myLibrary[index]);
+
+  const text = target.textContent === "read" ? "not read" : "read";
+
+  target.textContent = text;
+  target.classList.toggle("uncompleted");
+}
+
 // submit form event
 form.addEventListener("submit", addBookToLibrary);
 
@@ -115,8 +132,7 @@ booklist.addEventListener("click", (e) => {
 
   // when click on 'read' or 'btn-delete' class element;
   if (target.classList.contains("read")) {
-    const bookRowEl = target.parentNode;
-    console.log(bookRowEl);
+    toggleReadElement(target);
   } else if (target.classList.contains("btn-delete")) {
     removeBookFromLibrary(target);
   }
