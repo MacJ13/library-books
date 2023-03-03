@@ -75,12 +75,15 @@ function generateBookRowELement(book) {
     }
     row.insertAdjacentElement("beforeend", item);
   }
-
+  // add 'button' element iside created element;
   const btnDelete = generateButtonDelete();
   row.appendChild(btnDelete);
 
   return row;
 }
 
-// sumbmit form event
+// submit form event
 form.addEventListener("submit", addBookToLibrary);
+
+// book list click event
+booklist.addEventListener("click", (e) => {});
