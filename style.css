@@ -218,8 +218,12 @@ ul {
   text-align: center;
 
   cursor: pointer;
-  color: #d64f4f;
+  color: #60a5fa;
   border-radius: 25px;
+}
+
+.book-row .uncompleted {
+  color: #d64f4f;
 }
 
 .btn-delete {
