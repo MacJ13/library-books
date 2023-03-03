@@ -195,3 +195,11 @@ ul {
 
   border-bottom: 2px solid #3e060673;
 }
+
+#book-header {
+  background-image: none;
+  background-color: #eeeeee;
+  color: #342e2e;
+  font-weight: 600;
+  text-transform: uppercase;
+}
