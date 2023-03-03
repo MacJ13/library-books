@@ -32,11 +32,10 @@ function addBookToLibrary(e) {
   // set data-row attribute on bookRowEl
   bookElement.setAttribute("data-row", myLibrary.length);
 
-  // add book object to array
-  myLibrary.push(book);
-
   // display created element inside 'book-list' class element
   booklist.appendChild(bookElement);
+  // add book object to array
+  myLibrary.push(book);
 }
 
 function generateButtonDelete() {
@@ -75,15 +74,50 @@ function generateBookRowELement(book) {
     }
     row.insertAdjacentElement("beforeend", item);
   }
-  // add 'button' element iside created element;
+  // add 'button delete' element iside created element;
   const btnDelete = generateButtonDelete();
   row.appendChild(btnDelete);
 
   return row;
 }
 
+function removeBookFromLibrary(target) {
+  // get book row element from target
+  const bookRowEl = target.parentNode;
+
+  // get data-raw attribute value
+  const index = bookRowEl.dataset.row;
+
+  // remove book object from array
+  myLibrary.splice(index, 1);
+
+  // clear all booklist elements from book row elements
+  booklist.innerHTML = "";
+
+  // we generate book row elements again and sign set attribute values
+  myLibrary.forEach((book, index) => {
+    // create element
+    const bookElement = generateBookRowELement(book);
+
+    // set data-row attribute on bookRowEl
+    bookElement.setAttribute("data-row", index);
+
+    // add book element to book list element
+    booklist.appendChild(bookElement);
+  });
+}
 // submit form event
 form.addEventListener("submit", addBookToLibrary);
 
 // book list click event
-booklist.addEventListener("click", (e) => {});
+booklist.addEventListener("click", (e) => {
+  const target = e.target;
+
+  // when click on 'read' or 'btn-delete' class element;
+  if (target.classList.contains("read")) {
+    const bookRowEl = target.parentNode;
+    console.log(bookRowEl);
+  } else if (target.classList.contains("btn-delete")) {
+    removeBookFromLibrary(target);
+  }
+});
