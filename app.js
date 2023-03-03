@@ -34,3 +34,6 @@ function addBookToLibrary(e) {
   // generateBookElement(book);
   // myLibrary.push(book);
 }
+
+// sumbmit form event
+form.addEventListener("submit", addBookToLibrary);
