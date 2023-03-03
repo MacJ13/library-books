@@ -76,6 +76,9 @@ function generateBookRowELement(book) {
     row.insertAdjacentElement("beforeend", item);
   }
 
+  const btnDelete = generateButtonDelete();
+  row.appendChild(btnDelete);
+
   return row;
 }
 
