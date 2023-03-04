@@ -62,13 +62,14 @@ function generateBookRowELement(book) {
   row.className = "book-row";
 
   // loop over object book properties
-  for (const property in book) {
-    if (!book.hasOwnProperty(property)) continue;
+  for (const property of Object.keys(book)) {
+    // if (!book.hasOwnProperty(property)) continue;
 
     // create html for property and assign property to class name
     const item = document.createElement("span");
     item.className = property;
 
+    console.log(property);
     // assign textContent element to object property value
 
     if (property === "read") {
