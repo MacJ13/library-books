@@ -69,7 +69,6 @@ function generateBookRowELement(book) {
     const item = document.createElement("span");
     item.className = property;
 
-    console.log(property);
     // assign textContent element to object property value
 
     if (property === "read") {
