@@ -40,6 +40,7 @@ function addBookToLibrary(e) {
   // add book object to array
   myLibrary.push(book);
 
+  // clear inputs value
   title.value = "";
   author.value = "";
   pages.value = "";
