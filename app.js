@@ -1,12 +1,31 @@
 "use strict";
 
-let myLibrary = [];
+// let myLibrary = [];
 
-const form = document.querySelector(".form");
-const checkbox = document.getElementById("read");
-const booklist = document.querySelector(".book-list");
+class Library {
+  myLibrary = [];
 
-// create class Book with some properties
+  addBook(book) {
+    this.myLibrary.push(book);
+  }
+
+  get myLibrary() {
+    return this._myLibrary();
+  }
+
+  get numberOfBooks() {
+    return this.myLibrary.length;
+  }
+
+  getBookFromLibrary(index) {
+    return this.myLibrary[index];
+  }
+
+  removeBook(index) {
+    this.myLibrary.splice(index, 1);
+  }
+}
+// class Book with some properties
 class Book {
   constructor(title, author, pages, read) {
     this.title = title ? title : "unknown";
@@ -19,6 +38,13 @@ class Book {
     this.read = !this.read;
   }
 }
+
+const library = new Library();
+
+// DOM elements
+const form = document.querySelector(".form");
+const checkbox = document.getElementById("read");
+const booklist = document.querySelector(".book-list");
 
 function addBookToLibrary(e) {
   // stop default behavior of submit event
@@ -38,12 +64,12 @@ function addBookToLibrary(e) {
   const bookElement = generateBookRowELement(book);
 
   // set data-row attribute on bookRowEl
-  bookElement.setAttribute("data-row", myLibrary.length);
+  bookElement.setAttribute("data-row", library.numberOfBooks);
 
   // display created element inside 'book-list' class element
   booklist.appendChild(bookElement);
   // add book object to array
-  myLibrary.push(book);
+  library.addBook(book);
 
   // clear inputs value
   title.value = "";
@@ -103,13 +129,13 @@ function removeBookFromLibrary(target) {
   const index = bookRowEl.dataset.row;
 
   // remove book object from array
-  myLibrary.splice(index, 1);
+  library.removeBook(index);
 
   // clear all booklist elements from book row elements
   booklist.innerHTML = "";
 
   // we generate book row elements again and sign set attribute values
-  myLibrary.forEach((book, index) => {
+  library.myLibrary.forEach((book, index) => {
     // create element
     const bookElement = generateBookRowELement(book);
 
@@ -126,7 +152,7 @@ function toggleReadElement(target) {
   const index = target.parentNode.dataset.row;
 
   // get book object element from library array and change read property value
-  const book = myLibrary[index];
+  const book = library.getBookFromLibrary(index);
   book.toggleRead();
 
   // change text depending on read property value inside book object
