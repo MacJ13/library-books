@@ -1,19 +1,24 @@
+"use strict";
+
 let myLibrary = [];
 
 const form = document.querySelector(".form");
 const checkbox = document.getElementById("read");
 const booklist = document.querySelector(".book-list");
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
+// create class Book with some properties
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 
-Book.prototype.toggleRead = function () {
-  this.read = !this.read;
-};
+  toggleRead() {
+    this.read = !this.read;
+  }
+}
 
 function addBookToLibrary(e) {
   // stop default behavior of submit event
@@ -75,7 +80,6 @@ function generateBookRowELement(book) {
     item.className = property;
 
     // assign textContent element to object property value
-
     if (property === "read") {
       item.textContent = book[property] ? "read" : "not read";
       book[property] || item.classList.add("uncompleted");
@@ -118,13 +122,17 @@ function removeBookFromLibrary(target) {
 }
 
 function toggleReadElement(target) {
+  // get parent element of target and take row attribute value
   const index = target.parentNode.dataset.row;
 
+  // get book object element from library array and change read property value
   const book = myLibrary[index];
   book.toggleRead();
 
+  // change text depending on read property value inside book object
   const text = target.textContent === "read" ? "not read" : "read";
 
+  // assign text to element content and toggle class name
   target.textContent = text;
   target.classList.toggle("uncompleted");
 }
