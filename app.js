@@ -9,8 +9,8 @@ const booklist = document.querySelector(".book-list");
 // create class Book with some properties
 class Book {
   constructor(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
+    this.title = title ? title : "unknown";
+    this.author = author ? author : "unknown";
     this.pages = pages;
     this.read = read;
   }
