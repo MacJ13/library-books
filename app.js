@@ -1,7 +1,5 @@
 "use strict";
 
-// let myLibrary = [];
-
 class Library {
   myLibrary = [];
 
@@ -25,7 +23,7 @@ class Library {
     this.myLibrary.splice(index, 1);
   }
 }
-// class Book with some properties
+
 class Book {
   constructor(title, author, pages, read) {
     this.title = title ? title : "unknown";
